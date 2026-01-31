@@ -17,7 +17,8 @@
 	"runtime": {
 		"type": "node18",
 		"api": "nodejs-ipc",
-		"apiVersion": "0.0.0"
+		"apiVersion": "0.0.0",
+		"entrypoint": "../src/main.js"
 	},
 	"manufacturer": "Jam Studios",
 	"products": ["Ninja Timer"],
