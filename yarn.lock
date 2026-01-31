@@ -468,6 +468,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"binpack@npm:~0":
+  version: 0.1.0
+  resolution: "binpack@npm:0.1.0"
+  checksum: 10c0/d932263dcf52fe95b0a022c6066c97f69a20180c9c0161f6f20f4b4d036f4662020d4908127a3847dcb92c24a1fec99bfc8a83acb983ce836eaf8f5296515b9a
+  languageName: node
+  linkType: hard
+
 "browserslist@npm:^4.28.1":
   version: 4.28.1
   resolution: "browserslist@npm:4.28.1"
@@ -556,7 +563,7 @@ __metadata:
   dependencies:
     "@companion-module/base": "npm:~1.14.1"
     "@companion-module/tools": "npm:^2.6.1"
-    osc-min: "npm:^2.1.1"
+    osc-min: "npm:^1.1.2"
     prettier: "npm:^3.7.4"
   languageName: unknown
   linkType: soft
@@ -1056,10 +1063,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"osc-min@npm:^2.1.1":
-  version: 2.1.2
-  resolution: "osc-min@npm:2.1.2"
-  checksum: 10c0/de0ef3bfbd821c94e591da22277d3361aa5048beca102a366a283ce794dd0b5c9f117866dae21799f8ae4a666a86d6be6397ee591b043466f329ec4b726ef200
+"osc-min@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "osc-min@npm:1.1.2"
+  dependencies:
+    binpack: "npm:~0"
+  checksum: 10c0/1fc39e71947f0976ab238483357e73d6917ca8934ca2c430c929dce249f52a563179439949f278faf326f98211ff33d64f71af8c8366312a4cad23b89cecfd9a
   languageName: node
   linkType: hard
 
