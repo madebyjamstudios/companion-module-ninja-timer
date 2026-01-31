@@ -4,11 +4,10 @@
 
 ## Git Workflow
 
-- Always commit and push to BOTH remotes after every change:
-  - `origin` → github.com/madebyjamstudios/companion-module-ninja-timer (personal fork)
-  - `bitfocus` → github.com/bitfocus/companion-module-ninja-timer (upstream/official)
-- Push command: `git push origin main && git push bitfocus main`
-- madebyjamstudios is a collaborator on bitfocus — direct push, no PR needed.
+- Always commit and push after every change. Do not wait to be asked.
+- `git push origin main` automatically pushes to both remotes (configured via multi-push URLs in `.git/config`):
+  - github.com/madebyjamstudios/companion-module-ninja-timer
+  - github.com/bitfocus/companion-module-ninja-timer
 
 ## OSC Protocol Sync (CRITICAL)
 
