@@ -314,6 +314,17 @@ class NinjaTimerInstance extends InstanceBase {
 		})
 	}
 
+	formatTimerMode(mode) {
+		const map = {
+			countdown: 'Countdown',
+			countup: 'Count Up',
+			tod: 'Time of Day',
+			'countdown-tod': 'Countdown + ToD',
+			'countup-tod': 'Count Up + ToD',
+		}
+		return map[mode] || mode
+	}
+
 	formatSeconds(totalSeconds) {
 		const mins = Math.floor(Math.abs(totalSeconds) / 60)
 		const secs = Math.abs(totalSeconds) % 60
@@ -336,7 +347,7 @@ class NinjaTimerInstance extends InstanceBase {
 			warn_yellow_sec: this.state.warnYellowSec,
 			warn_orange_sec: this.state.warnOrangeSec,
 			// Timer mode
-			timer_mode: this.state.timerMode,
+			timer_mode: this.formatTimerMode(this.state.timerMode),
 			time_format: this.state.timeFormat,
 			// Sound
 			sound_type: this.state.soundType,

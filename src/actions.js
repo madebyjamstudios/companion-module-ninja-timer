@@ -51,11 +51,12 @@ module.exports = {
 				options: [
 					{
 						type: 'number',
-						label: 'Timer Number (1-based)',
+						label: 'Timer Number',
 						id: 'index',
 						default: 1,
 						min: 1,
 						max: 100,
+						tooltip: 'Timer 1 is the first timer, Timer 2 is the second, etc.',
 					},
 				],
 				callback: async (action) => {
@@ -161,11 +162,12 @@ module.exports = {
 				options: [
 					{
 						type: 'number',
-						label: 'Message Number (1-based)',
+						label: 'Message Number',
 						id: 'index',
 						default: 1,
 						min: 1,
 						max: 100,
+						tooltip: 'Message 1 is the first message, Message 2 is the second, etc.',
 					},
 				],
 				callback: async (action) => {
@@ -200,11 +202,12 @@ module.exports = {
 				options: [
 					{
 						type: 'number',
-						label: 'Profile Number (1-based)',
+						label: 'Profile Number',
 						id: 'index',
 						default: 1,
 						min: 1,
 						max: 100,
+						tooltip: 'Profile 1 is the first profile, Profile 2 is the second, etc.',
 					},
 				],
 				callback: async (action) => {

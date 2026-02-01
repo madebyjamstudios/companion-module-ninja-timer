@@ -101,8 +101,9 @@ module.exports = {
 				options: [
 					{
 						type: 'number',
-						label: 'Timer Number (1-based)',
+						label: 'Timer Number',
 						id: 'index',
+						tooltip: 'Timer 1 is the first timer, Timer 2 is the second, etc.',
 						default: 1,
 						min: 1,
 						max: 100,
@@ -123,8 +124,9 @@ module.exports = {
 				options: [
 					{
 						type: 'number',
-						label: 'Profile Number (1-based)',
+						label: 'Profile Number',
 						id: 'index',
+						tooltip: 'Profile 1 is the first profile, Profile 2 is the second, etc.',
 						default: 1,
 						min: 1,
 						max: 100,

@@ -1,4 +1,21 @@
 const { combineRgb } = require('@companion-module/base')
+const icons = require('./icons')
+
+const COLOR = {
+	BLUE: combineRgb(31, 111, 235), // #1f6feb - primary
+	GREEN: combineRgb(34, 197, 94), // #22c55e - play/success
+	YELLOW: combineRgb(234, 179, 8), // #eab308 - warning
+	ORANGE_RED: combineRgb(230, 74, 25), // #E64A19 - stop/danger
+	DARK_BG: combineRgb(10, 10, 10), // #0a0a0a
+	SEC_BG: combineRgb(26, 26, 26), // #1a1a1a
+	ELEV_BG: combineRgb(51, 51, 51), // #333333
+	INDIGO: combineRgb(99, 102, 241), // #6366f1
+	PINK: combineRgb(236, 72, 153), // #ec4899
+	VIOLET: combineRgb(139, 92, 246), // #8b5cf6
+	WHITE: combineRgb(255, 255, 255),
+	BLACK: combineRgb(0, 0, 0),
+	RED: combineRgb(239, 68, 68), // #ef4444
+}
 
 module.exports = {
 	getPresets() {
@@ -13,10 +30,12 @@ module.exports = {
 			category: 'Timer',
 			name: 'Play/Pause Toggle',
 			style: {
-				text: '▶ PLAY\n⏸ PAUSE',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 0, 0),
+				text: 'PLAY\\nPAUSE',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.DARK_BG,
+				png64: icons.PLAY_PAUSE,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
@@ -28,15 +47,15 @@ module.exports = {
 				{
 					feedbackId: 'running',
 					style: {
-						bgcolor: combineRgb(0, 200, 0),
-						text: '⏸ PAUSE',
+						bgcolor: COLOR.GREEN,
+						color: COLOR.BLACK,
 					},
 				},
 				{
 					feedbackId: 'paused',
 					style: {
-						bgcolor: combineRgb(200, 200, 0),
-						text: '▶ RESUME',
+						bgcolor: COLOR.YELLOW,
+						color: COLOR.BLACK,
 					},
 				},
 			],
@@ -47,10 +66,12 @@ module.exports = {
 			category: 'Timer',
 			name: 'Start Timer',
 			style: {
-				text: '▶ Start',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 100, 0),
+				text: 'START',
+				size: 'auto',
+				color: COLOR.BLACK,
+				bgcolor: COLOR.GREEN,
+				png64: icons.PLAY,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
@@ -66,10 +87,12 @@ module.exports = {
 			category: 'Timer',
 			name: 'Pause Timer',
 			style: {
-				text: '⏸ Pause',
-				size: '18',
-				color: combineRgb(0, 0, 0),
-				bgcolor: combineRgb(200, 200, 0),
+				text: 'PAUSE',
+				size: 'auto',
+				color: COLOR.BLACK,
+				bgcolor: COLOR.YELLOW,
+				png64: icons.PAUSE,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
@@ -85,10 +108,12 @@ module.exports = {
 			category: 'Timer',
 			name: 'Reset Timer',
 			style: {
-				text: '↺ Reset',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(80, 80, 80),
+				text: 'RESET',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.ELEV_BG,
+				png64: icons.RESET,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
@@ -104,53 +129,16 @@ module.exports = {
 			category: 'Timer',
 			name: 'Stop Timer',
 			style: {
-				text: '⏹ Stop',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(200, 0, 0),
+				text: 'STOP',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.ORANGE_RED,
+				png64: icons.STOP,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
 					down: [{ actionId: 'stop' }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		// Add duration buttons
-		presets['add_10s'] = {
-			type: 'button',
-			category: 'Timer',
-			name: 'Add 10 Seconds',
-			style: {
-				text: '+0:10',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 100, 100),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'addDuration', options: { amount: 10 } }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		presets['add_30s'] = {
-			type: 'button',
-			category: 'Timer',
-			name: 'Add 30 Seconds',
-			style: {
-				text: '+0:30',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 100, 100),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'addDuration', options: { amount: 30 } }],
 					up: [],
 				},
 			],
@@ -163,52 +151,15 @@ module.exports = {
 			name: 'Add 1 Minute',
 			style: {
 				text: '+1:00',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 100, 100),
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.BLUE,
+				png64: icons.PLUS,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
 					down: [{ actionId: 'addDuration', options: { amount: 60 } }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		// Subtract duration buttons
-		presets['sub_10s'] = {
-			type: 'button',
-			category: 'Timer',
-			name: 'Subtract 10 Seconds',
-			style: {
-				text: '-0:10',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(150, 60, 0),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'addDuration', options: { amount: -10 } }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		presets['sub_30s'] = {
-			type: 'button',
-			category: 'Timer',
-			name: 'Subtract 30 Seconds',
-			style: {
-				text: '-0:30',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(150, 60, 0),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'addDuration', options: { amount: -30 } }],
 					up: [],
 				},
 			],
@@ -221,9 +172,11 @@ module.exports = {
 			name: 'Subtract 1 Minute',
 			style: {
 				text: '-1:00',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(150, 60, 0),
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.ORANGE_RED,
+				png64: icons.MINUS,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
@@ -234,16 +187,17 @@ module.exports = {
 			feedbacks: [],
 		}
 
-		// Quick set duration buttons
 		presets['duration_5min'] = {
 			type: 'button',
 			category: 'Timer',
 			name: '5 Minutes',
 			style: {
 				text: '5:00',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 70, 70),
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.SEC_BG,
+				png64: icons.CLOCK,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
@@ -254,76 +208,21 @@ module.exports = {
 			feedbacks: [],
 		}
 
-		presets['duration_10min'] = {
-			type: 'button',
-			category: 'Timer',
-			name: '10 Minutes',
-			style: {
-				text: '10:00',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 70, 70),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'setDuration10min' }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
-		presets['duration_15min'] = {
-			type: 'button',
-			category: 'Timer',
-			name: '15 Minutes',
-			style: {
-				text: '15:00',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 70, 70),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'setDuration15min' }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
-
 		// =============================================
 		// 2. Select — Timer selection + navigation
 		// =============================================
-
-		presets['next_timer'] = {
-			type: 'button',
-			category: 'Select',
-			name: 'Next Timer',
-			style: {
-				text: 'Next ▸',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 0, 150),
-			},
-			steps: [
-				{
-					down: [{ actionId: 'nextTimer' }],
-					up: [],
-				},
-			],
-			feedbacks: [],
-		}
 
 		presets['prev_timer'] = {
 			type: 'button',
 			category: 'Select',
 			name: 'Previous Timer',
 			style: {
-				text: '◂ Prev',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 0, 150),
+				text: 'PREV',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.BLUE,
+				png64: icons.PREV,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
@@ -334,34 +233,54 @@ module.exports = {
 			feedbacks: [],
 		}
 
-		// Timer Select Buttons (1-7)
-		for (let i = 1; i <= 7; i++) {
-			presets[`timer_${i}`] = {
-				type: 'button',
-				category: 'Select',
-				name: `Select Timer ${i}`,
-				style: {
-					text: `T${i}`,
-					size: '18',
-					color: combineRgb(255, 255, 255),
-					bgcolor: combineRgb(0, 50, 120),
+		presets['next_timer'] = {
+			type: 'button',
+			category: 'Select',
+			name: 'Next Timer',
+			style: {
+				text: 'NEXT',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.BLUE,
+				png64: icons.NEXT,
+				pngalignment: 'center:center',
+			},
+			steps: [
+				{
+					down: [{ actionId: 'nextTimer' }],
+					up: [],
 				},
-				steps: [
-					{
-						down: [{ actionId: 'selectTimer', options: { index: i } }],
-						up: [],
+			],
+			feedbacks: [],
+		}
+
+		presets['timer_select'] = {
+			type: 'button',
+			category: 'Select',
+			name: 'Select Timer',
+			style: {
+				text: 'TIMER\\n1',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.SEC_BG,
+				png64: icons.TIMER,
+				pngalignment: 'center:center',
+			},
+			steps: [
+				{
+					down: [{ actionId: 'selectTimer', options: { index: 1 } }],
+					up: [],
+				},
+			],
+			feedbacks: [
+				{
+					feedbackId: 'timerSelected',
+					options: { index: 1 },
+					style: {
+						bgcolor: COLOR.BLUE,
 					},
-				],
-				feedbacks: [
-					{
-						feedbackId: 'timerSelected',
-						options: { index: i },
-						style: {
-							bgcolor: combineRgb(0, 100, 200),
-						},
-					},
-				],
-			}
+				},
+			],
 		}
 
 		// =============================================
@@ -374,28 +293,28 @@ module.exports = {
 			name: 'Time Display',
 			style: {
 				text: '$(ninja:time)',
-				size: '24',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 0, 0),
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.DARK_BG,
 			},
 			steps: [],
 			feedbacks: [
 				{
 					feedbackId: 'running',
 					style: {
-						color: combineRgb(0, 255, 0),
+						color: COLOR.GREEN,
 					},
 				},
 				{
 					feedbackId: 'overtime',
 					style: {
-						color: combineRgb(255, 0, 0),
+						color: COLOR.RED,
 					},
 				},
 				{
 					feedbackId: 'ended',
 					style: {
-						color: combineRgb(255, 0, 0),
+						color: COLOR.RED,
 						bgcolor: combineRgb(50, 0, 0),
 					},
 				},
@@ -408,9 +327,11 @@ module.exports = {
 			name: 'Timer Name',
 			style: {
 				text: '$(ninja:timer_name)',
-				size: '14',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 0, 50),
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.SEC_BG,
+				png64: icons.INFO,
+				pngalignment: 'center:center',
 			},
 			steps: [],
 			feedbacks: [],
@@ -422,9 +343,11 @@ module.exports = {
 			name: 'Duration Display',
 			style: {
 				text: '$(ninja:duration_formatted)',
-				size: '18',
+				size: 'auto',
 				color: combineRgb(150, 150, 150),
-				bgcolor: combineRgb(30, 30, 30),
+				bgcolor: COLOR.SEC_BG,
+				png64: icons.CLOCK,
+				pngalignment: 'center:center',
 			},
 			steps: [],
 			feedbacks: [],
@@ -436,36 +359,38 @@ module.exports = {
 			name: 'Timer State',
 			style: {
 				text: '$(ninja:state)',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(50, 50, 50),
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.ELEV_BG,
+				png64: icons.INFO,
+				pngalignment: 'center:center',
 			},
 			steps: [],
 			feedbacks: [
 				{
 					feedbackId: 'running',
 					style: {
-						bgcolor: combineRgb(0, 200, 0),
-						color: combineRgb(0, 0, 0),
+						bgcolor: COLOR.GREEN,
+						color: COLOR.BLACK,
 					},
 				},
 				{
 					feedbackId: 'paused',
 					style: {
-						bgcolor: combineRgb(200, 200, 0),
-						color: combineRgb(0, 0, 0),
+						bgcolor: COLOR.YELLOW,
+						color: COLOR.BLACK,
 					},
 				},
 				{
 					feedbackId: 'ended',
 					style: {
-						bgcolor: combineRgb(200, 0, 0),
+						bgcolor: COLOR.ORANGE_RED,
 					},
 				},
 				{
 					feedbackId: 'overtime',
 					style: {
-						bgcolor: combineRgb(200, 0, 0),
+						bgcolor: COLOR.ORANGE_RED,
 					},
 				},
 			],
@@ -477,28 +402,32 @@ module.exports = {
 			name: 'Timer Mode',
 			style: {
 				text: '$(ninja:timer_mode)',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 50, 100),
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.SEC_BG,
+				png64: icons.INFO,
+				pngalignment: 'center:center',
 			},
 			steps: [],
 			feedbacks: [
 				{
 					feedbackId: 'modeCountdown',
 					style: {
-						bgcolor: combineRgb(0, 100, 200),
+						bgcolor: COLOR.BLUE,
 					},
 				},
 				{
 					feedbackId: 'modeCountup',
 					style: {
-						bgcolor: combineRgb(0, 150, 100),
+						bgcolor: COLOR.GREEN,
+						color: COLOR.BLACK,
 					},
 				},
 				{
 					feedbackId: 'modeTod',
 					style: {
-						bgcolor: combineRgb(150, 100, 0),
+						bgcolor: COLOR.YELLOW,
+						color: COLOR.BLACK,
 					},
 				},
 			],
@@ -510,26 +439,25 @@ module.exports = {
 			name: 'Warning Zone Indicator',
 			style: {
 				text: 'WARNING',
-				size: '14',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(50, 50, 50),
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.ELEV_BG,
+				png64: icons.WARNING,
+				pngalignment: 'center:center',
 			},
 			steps: [],
 			feedbacks: [
 				{
 					feedbackId: 'warningYellow',
 					style: {
-						bgcolor: combineRgb(255, 255, 0),
-						color: combineRgb(0, 0, 0),
-						text: 'YELLOW',
+						bgcolor: COLOR.YELLOW,
+						color: COLOR.BLACK,
 					},
 				},
 				{
 					feedbackId: 'warningOrange',
 					style: {
-						bgcolor: combineRgb(255, 165, 0),
-						color: combineRgb(0, 0, 0),
-						text: 'ORANGE',
+						bgcolor: COLOR.ORANGE_RED,
 					},
 				},
 			],
@@ -540,10 +468,12 @@ module.exports = {
 			category: 'Display',
 			name: 'Blackout Toggle',
 			style: {
-				text: '⬛ Blackout',
-				size: '14',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(50, 50, 50),
+				text: 'BLACK\\nOUT',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.ELEV_BG,
+				png64: icons.BLACKOUT,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
@@ -555,9 +485,8 @@ module.exports = {
 				{
 					feedbackId: 'blackout',
 					style: {
-						bgcolor: combineRgb(0, 0, 0),
-						color: combineRgb(255, 0, 0),
-						text: '⬛ Blackout',
+						bgcolor: COLOR.BLACK,
+						color: COLOR.RED,
 					},
 				},
 			],
@@ -568,10 +497,12 @@ module.exports = {
 			category: 'Display',
 			name: 'Flash Display',
 			style: {
-				text: '⚡ Flash',
-				size: '18',
-				color: combineRgb(0, 0, 0),
-				bgcolor: combineRgb(255, 255, 0),
+				text: 'FLASH',
+				size: 'auto',
+				color: COLOR.BLACK,
+				bgcolor: COLOR.YELLOW,
+				png64: icons.FLASH,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
@@ -591,10 +522,12 @@ module.exports = {
 			category: 'Messages',
 			name: 'Hide Message',
 			style: {
-				text: '✕ Hide',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(120, 0, 0),
+				text: 'HIDE\\nMSG',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.ORANGE_RED,
+				png64: icons.MESSAGE,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
@@ -605,64 +538,67 @@ module.exports = {
 			feedbacks: [],
 		}
 
-		// Show Message Buttons (1-4)
-		for (let i = 1; i <= 4; i++) {
-			presets[`message_${i}`] = {
-				type: 'button',
-				category: 'Messages',
-				name: `Show Message ${i}`,
-				style: {
-					text: `Msg ${i}`,
-					size: '18',
-					color: combineRgb(255, 255, 255),
-					bgcolor: combineRgb(140, 0, 140),
-				},
-				steps: [
-					{
-						down: [{ actionId: 'showMessage', options: { index: i } }],
-						up: [],
-					},
-				],
-				feedbacks: [],
-			}
-		}
-
-		// =============================================
-		// 5. Profiles — Profile nav + settings
-		// =============================================
-
-		presets['next_profile'] = {
+		presets['show_message'] = {
 			type: 'button',
-			category: 'Profiles',
-			name: 'Next Profile',
+			category: 'Messages',
+			name: 'Show Message',
 			style: {
-				text: 'Next ▸',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(100, 0, 150),
+				text: 'MSG 1',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.PINK,
+				png64: icons.MESSAGE,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
-					down: [{ actionId: 'nextProfile' }],
+					down: [{ actionId: 'showMessage', options: { index: 1 } }],
 					up: [],
 				},
 			],
 			feedbacks: [],
 		}
 
+		// =============================================
+		// 5. Profiles — Profile nav + settings
+		// =============================================
+
 		presets['prev_profile'] = {
 			type: 'button',
 			category: 'Profiles',
 			name: 'Previous Profile',
 			style: {
-				text: '◂ Prev',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(100, 0, 150),
+				text: 'PREV',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.VIOLET,
+				png64: icons.PREV,
+				pngalignment: 'center:center',
 			},
 			steps: [
 				{
 					down: [{ actionId: 'previousProfile' }],
+					up: [],
+				},
+			],
+			feedbacks: [],
+		}
+
+		presets['next_profile'] = {
+			type: 'button',
+			category: 'Profiles',
+			name: 'Next Profile',
+			style: {
+				text: 'NEXT',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.VIOLET,
+				png64: icons.NEXT,
+				pngalignment: 'center:center',
+			},
+			steps: [
+				{
+					down: [{ actionId: 'nextProfile' }],
 					up: [],
 				},
 			],
@@ -675,9 +611,11 @@ module.exports = {
 			name: 'Profile Name',
 			style: {
 				text: '$(ninja:profile_name)',
-				size: '14',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(50, 0, 70),
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.SEC_BG,
+				png64: icons.PROFILE,
+				pngalignment: 'center:center',
 			},
 			steps: [],
 			feedbacks: [],
@@ -688,10 +626,10 @@ module.exports = {
 			category: 'Profiles',
 			name: 'Overtime Toggle',
 			style: {
-				text: 'Overtime',
-				size: '18',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(50, 50, 50),
+				text: 'OVERTIME',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.ELEV_BG,
 			},
 			steps: [
 				{
@@ -703,8 +641,7 @@ module.exports = {
 				{
 					feedbackId: 'overtimeAllowed',
 					style: {
-						bgcolor: combineRgb(200, 100, 0),
-						text: 'Overtime',
+						bgcolor: COLOR.ORANGE_RED,
 					},
 				},
 			],
@@ -715,19 +652,18 @@ module.exports = {
 			category: 'Profiles',
 			name: 'Scheduled Timer',
 			style: {
-				text: 'Sched',
-				size: '18',
-				color: combineRgb(150, 150, 150),
-				bgcolor: combineRgb(50, 50, 50),
+				text: 'SCHED',
+				size: 'auto',
+				color: COLOR.WHITE,
+				bgcolor: COLOR.ELEV_BG,
 			},
 			steps: [],
 			feedbacks: [
 				{
 					feedbackId: 'hasTargetTime',
 					style: {
-						bgcolor: combineRgb(100, 50, 150),
-						color: combineRgb(255, 255, 255),
-						text: 'Sched',
+						bgcolor: COLOR.INDIGO,
+						color: COLOR.WHITE,
 					},
 				},
 			],
