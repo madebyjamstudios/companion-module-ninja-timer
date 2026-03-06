@@ -255,7 +255,7 @@ module.exports = {
 			category: 'Select',
 			name: 'Select Timer',
 			style: {
-				text: '\\nTIMER\\n1',
+				text: '\\nTIMER\\n$(ninja-timer:timer_index)',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.SEC_BG,
