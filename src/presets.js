@@ -27,7 +27,7 @@ module.exports = {
 
 		presets['toggle'] = {
 			type: 'button',
-			category: 'Timer',
+			category: '2. Timer',
 			name: 'Play/Pause Toggle',
 			style: {
 				text: '\\n\\nTOGGLE',
@@ -63,7 +63,7 @@ module.exports = {
 
 		presets['start'] = {
 			type: 'button',
-			category: 'Timer',
+			category: '2. Timer',
 			name: 'Start Timer',
 			style: {
 				text: '\\n\\nSTART',
@@ -84,7 +84,7 @@ module.exports = {
 
 		presets['pause'] = {
 			type: 'button',
-			category: 'Timer',
+			category: '2. Timer',
 			name: 'Pause Timer',
 			style: {
 				text: '\\n\\nPAUSE',
@@ -105,7 +105,7 @@ module.exports = {
 
 		presets['reset'] = {
 			type: 'button',
-			category: 'Timer',
+			category: '2. Timer',
 			name: 'Reset Timer',
 			style: {
 				text: '\\n\\nRESET',
@@ -126,7 +126,7 @@ module.exports = {
 
 		presets['stop'] = {
 			type: 'button',
-			category: 'Timer',
+			category: '2. Timer',
 			name: 'Stop Timer',
 			style: {
 				text: '\\n\\nSTOP',
@@ -147,7 +147,7 @@ module.exports = {
 
 		presets['add_1min'] = {
 			type: 'button',
-			category: 'Timer',
+			category: '2. Timer',
 			name: 'Add 1 Minute',
 			style: {
 				text: '+1:00',
@@ -166,7 +166,7 @@ module.exports = {
 
 		presets['sub_1min'] = {
 			type: 'button',
-			category: 'Timer',
+			category: '2. Timer',
 			name: 'Subtract 1 Minute',
 			style: {
 				text: '-1:00',
@@ -185,7 +185,7 @@ module.exports = {
 
 		presets['duration_5min'] = {
 			type: 'button',
-			category: 'Timer',
+			category: '2. Timer',
 			name: '5 Minutes',
 			style: {
 				text: '\\n\\n5:00',
@@ -210,7 +210,7 @@ module.exports = {
 
 		presets['prev_timer'] = {
 			type: 'button',
-			category: 'Select',
+			category: '1. Select',
 			name: 'Previous Timer',
 			style: {
 				text: '\\n\\nPREV',
@@ -231,7 +231,7 @@ module.exports = {
 
 		presets['next_timer'] = {
 			type: 'button',
-			category: 'Select',
+			category: '1. Select',
 			name: 'Next Timer',
 			style: {
 				text: '\\n\\nNEXT',
@@ -252,7 +252,7 @@ module.exports = {
 
 		presets['timer_select'] = {
 			type: 'button',
-			category: 'Select',
+			category: '1. Select',
 			name: 'Select Timer',
 			style: {
 				text: '\\nTIMER\\n$(ninja-timer:timer_index)',
@@ -285,7 +285,7 @@ module.exports = {
 
 		presets['time_display'] = {
 			type: 'button',
-			category: 'Display',
+			category: '3. Display',
 			name: 'Time Display',
 			style: {
 				text: '$(ninja-timer:time)',
@@ -319,7 +319,7 @@ module.exports = {
 
 		presets['timer_name'] = {
 			type: 'button',
-			category: 'Display',
+			category: '3. Display',
 			name: 'Timer Name',
 			style: {
 				text: 'TIMER\\n$(ninja-timer:timer_name)',
@@ -333,7 +333,7 @@ module.exports = {
 
 		presets['duration_display'] = {
 			type: 'button',
-			category: 'Display',
+			category: '3. Display',
 			name: 'Duration Display',
 			style: {
 				text: '\\nDURATION\\n$(ninja-timer:duration_formatted)',
@@ -349,7 +349,7 @@ module.exports = {
 
 		presets['state_display'] = {
 			type: 'button',
-			category: 'Display',
+			category: '3. Display',
 			name: 'Timer State',
 			style: {
 				text: 'STATE\\n$(ninja-timer:state)',
@@ -390,7 +390,7 @@ module.exports = {
 
 		presets['mode_display'] = {
 			type: 'button',
-			category: 'Display',
+			category: '3. Display',
 			name: 'Timer Mode',
 			style: {
 				text: 'MODE\\n$(ninja-timer:timer_mode)',
@@ -425,7 +425,7 @@ module.exports = {
 
 		presets['warning_indicator'] = {
 			type: 'button',
-			category: 'Display',
+			category: '3. Display',
 			name: 'Warning Zone Indicator',
 			style: {
 				text: '\\n\\nWARNING',
@@ -455,7 +455,7 @@ module.exports = {
 
 		presets['blackout'] = {
 			type: 'button',
-			category: 'Display',
+			category: '3. Display',
 			name: 'Blackout Toggle',
 			style: {
 				text: '\\nBLACK\\nOUT',
@@ -485,7 +485,7 @@ module.exports = {
 
 		presets['flash'] = {
 			type: 'button',
-			category: 'Display',
+			category: '3. Display',
 			name: 'Flash Display',
 			style: {
 				text: '\\n\\nFLASH',
@@ -510,7 +510,7 @@ module.exports = {
 
 		presets['hide_message'] = {
 			type: 'button',
-			category: 'Messages',
+			category: '4. Messages',
 			name: 'Hide Message',
 			style: {
 				text: '\\nHIDE\\nMSG',
@@ -531,7 +531,7 @@ module.exports = {
 
 		presets['show_message'] = {
 			type: 'button',
-			category: 'Messages',
+			category: '4. Messages',
 			name: 'Show Message',
 			style: {
 				text: '\\n\\nMSG 1',
@@ -556,7 +556,7 @@ module.exports = {
 
 		presets['prev_profile'] = {
 			type: 'button',
-			category: 'Profiles',
+			category: '5. Profiles',
 			name: 'Previous Profile',
 			style: {
 				text: '\\n\\nPREV',
@@ -577,7 +577,7 @@ module.exports = {
 
 		presets['next_profile'] = {
 			type: 'button',
-			category: 'Profiles',
+			category: '5. Profiles',
 			name: 'Next Profile',
 			style: {
 				text: '\\n\\nNEXT',
@@ -598,7 +598,7 @@ module.exports = {
 
 		presets['profile_display'] = {
 			type: 'button',
-			category: 'Profiles',
+			category: '5. Profiles',
 			name: 'Profile Name',
 			style: {
 				text: '\\nPROFILE\\n$(ninja-timer:profile_name)',
@@ -614,7 +614,7 @@ module.exports = {
 
 		presets['overtime_toggle'] = {
 			type: 'button',
-			category: 'Profiles',
+			category: '5. Profiles',
 			name: 'Overtime Toggle',
 			style: {
 				text: 'OVERTIME',
@@ -640,7 +640,7 @@ module.exports = {
 
 		presets['scheduled_indicator'] = {
 			type: 'button',
-			category: 'Profiles',
+			category: '5. Profiles',
 			name: 'Scheduled Timer',
 			style: {
 				text: 'SCHED',
