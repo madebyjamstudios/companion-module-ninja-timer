@@ -150,12 +150,10 @@ module.exports = {
 			category: 'Timer',
 			name: 'Add 1 Minute',
 			style: {
-				text: '\\n\\n+1:00',
+				text: '+1:00',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.BLUE,
-				png64: icons.PLUS,
-				pngalignment: 'center:top',
 			},
 			steps: [
 				{
@@ -171,12 +169,10 @@ module.exports = {
 			category: 'Timer',
 			name: 'Subtract 1 Minute',
 			style: {
-				text: '\\n\\n-1:00',
+				text: '-1:00',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.ORANGE_RED,
-				png64: icons.MINUS,
-				pngalignment: 'center:top',
 			},
 			steps: [
 				{
