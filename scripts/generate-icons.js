@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Generates 72x30px white-on-transparent PNG icons for Companion presets.
+ * Generates 72x38px white-on-transparent PNG icons for Companion presets.
+ * 8px top padding baked in so icons don't sit flush against the button edge.
  * Run: node scripts/generate-icons.js
  * Requires: canvas (npm install --save-dev canvas)
  */
@@ -10,7 +11,9 @@ const fs = require('fs')
 const path = require('path')
 
 const W = 72
-const H = 30
+const DRAW_H = 30
+const PAD_TOP = 8
+const H = DRAW_H + PAD_TOP
 const WHITE = '#ffffff'
 
 function makeCanvas() {
@@ -22,6 +25,8 @@ function makeCanvas() {
 	ctx.lineWidth = 2.5
 	ctx.lineCap = 'round'
 	ctx.lineJoin = 'round'
+	// Shift drawing down by PAD_TOP so icons have breathing room at the top
+	ctx.translate(0, PAD_TOP)
 	return { canvas, ctx }
 }
 
@@ -33,7 +38,7 @@ function toPng64(canvas) {
 
 function drawPlay() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2, sz = 10
+	const cx = W / 2, cy = DRAW_H / 2, sz = 10
 	ctx.beginPath()
 	ctx.moveTo(cx - sz * 0.7, cy - sz)
 	ctx.lineTo(cx + sz * 0.8, cy)
@@ -45,7 +50,7 @@ function drawPlay() {
 
 function drawPause() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2, bw = 3.5, bh = 10, gap = 4
+	const cx = W / 2, cy = DRAW_H / 2, bw = 3.5, bh = 10, gap = 4
 	ctx.fillRect(cx - gap - bw, cy - bh, bw, bh * 2)
 	ctx.fillRect(cx + gap, cy - bh, bw, bh * 2)
 	return toPng64(canvas)
@@ -53,7 +58,7 @@ function drawPause() {
 
 function drawPlayPause() {
 	const { canvas, ctx } = makeCanvas()
-	const cy = H / 2, sz = 8
+	const cy = DRAW_H / 2, sz = 8
 	// Play triangle on the left
 	const px = W / 2 - 10
 	ctx.beginPath()
@@ -71,14 +76,14 @@ function drawPlayPause() {
 
 function drawStop() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2, sz = 8
+	const cx = W / 2, cy = DRAW_H / 2, sz = 8
 	ctx.fillRect(cx - sz, cy - sz, sz * 2, sz * 2)
 	return toPng64(canvas)
 }
 
 function drawReset() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2, r = 10
+	const cx = W / 2, cy = DRAW_H / 2, r = 10
 	ctx.lineWidth = 2.5
 	// Circular arc (~300 degrees)
 	ctx.beginPath()
@@ -99,7 +104,7 @@ function drawReset() {
 
 function drawPlus() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2, sz = 8
+	const cx = W / 2, cy = DRAW_H / 2, sz = 8
 	ctx.lineWidth = 3
 	ctx.beginPath()
 	ctx.moveTo(cx - sz, cy)
@@ -112,7 +117,7 @@ function drawPlus() {
 
 function drawMinus() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2, sz = 8
+	const cx = W / 2, cy = DRAW_H / 2, sz = 8
 	ctx.lineWidth = 3
 	ctx.beginPath()
 	ctx.moveTo(cx - sz, cy)
@@ -123,7 +128,7 @@ function drawMinus() {
 
 function drawClock() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2, r = 11
+	const cx = W / 2, cy = DRAW_H / 2, r = 11
 	ctx.lineWidth = 2
 	ctx.beginPath()
 	ctx.arc(cx, cy, r, 0, Math.PI * 2)
@@ -145,7 +150,7 @@ function drawClock() {
 
 function drawNext() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2, sz = 8
+	const cx = W / 2, cy = DRAW_H / 2, sz = 8
 	// First triangle
 	ctx.beginPath()
 	ctx.moveTo(cx - sz, cy - sz)
@@ -167,7 +172,7 @@ function drawNext() {
 
 function drawPrev() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2, sz = 8
+	const cx = W / 2, cy = DRAW_H / 2, sz = 8
 	// Start bar
 	ctx.fillRect(cx - sz - 3.5, cy - sz, 2.5, sz * 2)
 	// First triangle
@@ -189,7 +194,7 @@ function drawPrev() {
 
 function drawTimer() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2 + 2, r = 10
+	const cx = W / 2, cy = DRAW_H / 2 + 2, r = 10
 	// Body circle
 	ctx.lineWidth = 2
 	ctx.beginPath()
@@ -212,7 +217,7 @@ function drawTimer() {
 
 function drawEye() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2, r = 9
+	const cx = W / 2, cy = DRAW_H / 2, r = 9
 	ctx.lineWidth = 2
 	// Eye shape (two arcs)
 	ctx.beginPath()
@@ -230,7 +235,7 @@ function drawEye() {
 
 function drawBlackout() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2, r = 9
+	const cx = W / 2, cy = DRAW_H / 2, r = 9
 	ctx.lineWidth = 2
 	// Eye shape (two arcs)
 	ctx.beginPath()
@@ -255,7 +260,7 @@ function drawBlackout() {
 
 function drawFlash() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2
+	const cx = W / 2, cy = DRAW_H / 2
 	// Bold lightning bolt
 	ctx.beginPath()
 	ctx.moveTo(cx + 1, cy - 13)
@@ -271,7 +276,7 @@ function drawFlash() {
 
 function drawMessage() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2 - 1
+	const cx = W / 2, cy = DRAW_H / 2 - 1
 	const bw = 16, bh = 10, r = 3
 	// Rounded rectangle bubble
 	ctx.beginPath()
@@ -299,7 +304,7 @@ function drawMessage() {
 
 function drawProfile() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2
+	const cx = W / 2, cy = DRAW_H / 2
 	// Head
 	ctx.beginPath()
 	ctx.arc(cx, cy - 5, 5, 0, Math.PI * 2)
@@ -313,7 +318,7 @@ function drawProfile() {
 
 function drawWarning() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2
+	const cx = W / 2, cy = DRAW_H / 2
 	const sz = 13
 	// Triangle
 	ctx.lineWidth = 2
@@ -337,7 +342,7 @@ function drawWarning() {
 
 function drawInfo() {
 	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = H / 2, r = 11
+	const cx = W / 2, cy = DRAW_H / 2, r = 11
 	// Circle
 	ctx.lineWidth = 2
 	ctx.beginPath()
@@ -381,7 +386,7 @@ const icons = {
 
 // Build icons.js source
 const lines = [
-	'// Auto-generated PNG64 icons (72x30px, white on transparent)',
+	`// Auto-generated PNG64 icons (${W}x${H}px, white on transparent, ${PAD_TOP}px top padding)`,
 	'// Do not edit manually \u2014 regenerate with scripts/generate-icons.js',
 	'',
 	'module.exports = {',
