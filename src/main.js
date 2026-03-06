@@ -281,6 +281,13 @@ class NinjaTimerInstance extends InstanceBase {
 			case '/ninja/state/duration':
 				this.state.duration = value || 0
 				break
+			// Error reporting
+			case '/ninja/error': {
+				const errorType = value || 'unknown'
+				const failingAddress = args.length > 1 ? args[1].value : ''
+				this.log('warn', `Ninja Timer error: ${errorType} — ${failingAddress}`)
+				break
+			}
 		}
 
 		this.checkVariables()

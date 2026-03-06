@@ -102,7 +102,7 @@ module.exports = {
 						id: 'duration',
 						default: 300,
 						min: 1,
-						max: 86400,
+						max: 604800,
 					},
 				],
 				callback: async (action) => {
@@ -245,11 +245,24 @@ module.exports = {
 							{ id: 'alert', label: 'Alert' },
 							{ id: 'gong', label: 'Gong' },
 							{ id: 'soft', label: 'Soft' },
+							{ id: 'custom', label: 'Custom...' },
 						],
+					},
+					{
+						type: 'textinput',
+						label: 'Custom Sound ID',
+						id: 'customSoundId',
+						default: '',
+						isVisible: (options) => options.soundType === 'custom',
+						tooltip: 'Enter the custom sound ID (e.g. "my-sound"). The app will send custom:<id>.',
 					},
 				],
 				callback: async (action) => {
-					self.sendOSC('/ninja/timer/sound/type', action.options.soundType)
+					if (action.options.soundType === 'custom') {
+						self.sendOSC('/ninja/timer/sound/type', `custom:${action.options.customSoundId}`)
+					} else {
+						self.sendOSC('/ninja/timer/sound/type', action.options.soundType)
+					}
 				},
 			},
 
