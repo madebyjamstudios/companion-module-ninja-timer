@@ -30,7 +30,7 @@ module.exports = {
 			category: 'Timer',
 			name: 'Play/Pause Toggle',
 			style: {
-				text: '\\nPLAY\\nPAUSE',
+				text: '\\n\\nTOGGLE',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.DARK_BG,
@@ -326,7 +326,7 @@ module.exports = {
 			category: 'Display',
 			name: 'Timer Name',
 			style: {
-				text: '$(ninja-timer:timer_name)',
+				text: 'TIMER\\n$(ninja-timer:timer_name)',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.SEC_BG,
@@ -340,7 +340,7 @@ module.exports = {
 			category: 'Display',
 			name: 'Duration Display',
 			style: {
-				text: '\\n\\n$(ninja-timer:duration_formatted)',
+				text: '\\nDURATION\\n$(ninja-timer:duration_formatted)',
 				size: 'auto',
 				color: combineRgb(150, 150, 150),
 				bgcolor: COLOR.SEC_BG,
@@ -356,7 +356,7 @@ module.exports = {
 			category: 'Display',
 			name: 'Timer State',
 			style: {
-				text: '$(ninja-timer:state)',
+				text: 'STATE\\n$(ninja-timer:state)',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.ELEV_BG,
@@ -397,7 +397,7 @@ module.exports = {
 			category: 'Display',
 			name: 'Timer Mode',
 			style: {
-				text: '$(ninja-timer:timer_mode)',
+				text: 'MODE\\n$(ninja-timer:timer_mode)',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.SEC_BG,
@@ -605,7 +605,7 @@ module.exports = {
 			category: 'Profiles',
 			name: 'Profile Name',
 			style: {
-				text: '\\n\\n$(ninja-timer:profile_name)',
+				text: '\\nPROFILE\\n$(ninja-timer:profile_name)',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.SEC_BG,
