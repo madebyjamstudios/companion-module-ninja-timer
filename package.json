@@ -4,7 +4,8 @@
   "main": "src/main.js",
   "scripts": {
     "format": "prettier -w .",
-    "package": "companion-module-build"
+    "package": "companion-module-build",
+    "generate-icons": "node scripts/generate-icons.js"
   },
   "license": "MIT",
   "homepage": "https://github.com/madebyjamstudios/ninja-timer",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@companion-module/tools": "^2.6.1",
+    "canvas": "^3.2.1",
     "prettier": "^3.7.4"
   },
   "prettier": "@companion-module/tools/.prettierrc.json",

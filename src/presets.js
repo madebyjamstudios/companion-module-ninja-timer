@@ -292,7 +292,7 @@ module.exports = {
 			category: 'Display',
 			name: 'Time Display',
 			style: {
-				text: '$(ninja:time)',
+				text: '$(ninja-timer:time)',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.DARK_BG,
@@ -326,12 +326,10 @@ module.exports = {
 			category: 'Display',
 			name: 'Timer Name',
 			style: {
-				text: '\\n\\n$(ninja:timer_name)',
+				text: '$(ninja-timer:timer_name)',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.SEC_BG,
-				png64: icons.INFO,
-				pngalignment: 'center:top',
 			},
 			steps: [],
 			feedbacks: [],
@@ -342,7 +340,7 @@ module.exports = {
 			category: 'Display',
 			name: 'Duration Display',
 			style: {
-				text: '\\n\\n$(ninja:duration_formatted)',
+				text: '\\n\\n$(ninja-timer:duration_formatted)',
 				size: 'auto',
 				color: combineRgb(150, 150, 150),
 				bgcolor: COLOR.SEC_BG,
@@ -358,12 +356,10 @@ module.exports = {
 			category: 'Display',
 			name: 'Timer State',
 			style: {
-				text: '\\n\\n$(ninja:state)',
+				text: '$(ninja-timer:state)',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.ELEV_BG,
-				png64: icons.INFO,
-				pngalignment: 'center:top',
 			},
 			steps: [],
 			feedbacks: [
@@ -401,12 +397,10 @@ module.exports = {
 			category: 'Display',
 			name: 'Timer Mode',
 			style: {
-				text: '\\n\\n$(ninja:timer_mode)',
+				text: '$(ninja-timer:timer_mode)',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.SEC_BG,
-				png64: icons.INFO,
-				pngalignment: 'center:top',
 			},
 			steps: [],
 			feedbacks: [
@@ -610,7 +604,7 @@ module.exports = {
 			category: 'Profiles',
 			name: 'Profile Name',
 			style: {
-				text: '\\n\\n$(ninja:profile_name)',
+				text: '\\n\\n$(ninja-timer:profile_name)',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.SEC_BG,
