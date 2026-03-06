@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
- * Generates 72x38px white-on-transparent PNG icons for Companion presets.
- * 8px top padding baked in so icons don't sit flush against the button edge.
+ * Generates 72x34px white-on-transparent PNG icons for Companion presets.
  * Run: node scripts/generate-icons.js
  * Requires: canvas (npm install --save-dev canvas)
  */
@@ -11,9 +10,8 @@ const fs = require('fs')
 const path = require('path')
 
 const W = 72
-const DRAW_H = 30
-const PAD_TOP = 8
-const H = DRAW_H + PAD_TOP
+const DRAW_H = 34
+const H = DRAW_H
 const WHITE = '#ffffff'
 
 function makeCanvas() {
@@ -25,8 +23,6 @@ function makeCanvas() {
 	ctx.lineWidth = 2.5
 	ctx.lineCap = 'round'
 	ctx.lineJoin = 'round'
-	// Shift drawing down by PAD_TOP so icons have breathing room at the top
-	ctx.translate(0, PAD_TOP)
 	return { canvas, ctx }
 }
 
@@ -215,49 +211,6 @@ function drawTimer() {
 	return toPng64(canvas)
 }
 
-function drawEye() {
-	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = DRAW_H / 2, r = 9
-	ctx.lineWidth = 2
-	// Eye shape (two arcs)
-	ctx.beginPath()
-	ctx.moveTo(cx - r * 1.6, cy)
-	ctx.quadraticCurveTo(cx, cy - r * 1.3, cx + r * 1.6, cy)
-	ctx.quadraticCurveTo(cx, cy + r * 1.3, cx - r * 1.6, cy)
-	ctx.closePath()
-	ctx.stroke()
-	// Pupil
-	ctx.beginPath()
-	ctx.arc(cx, cy, r * 0.4, 0, Math.PI * 2)
-	ctx.fill()
-	return toPng64(canvas)
-}
-
-function drawBlackout() {
-	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = DRAW_H / 2, r = 9
-	ctx.lineWidth = 2
-	// Eye shape (two arcs)
-	ctx.beginPath()
-	ctx.moveTo(cx - r * 1.6, cy)
-	ctx.quadraticCurveTo(cx, cy - r * 1.3, cx + r * 1.6, cy)
-	ctx.quadraticCurveTo(cx, cy + r * 1.3, cx - r * 1.6, cy)
-	ctx.closePath()
-	ctx.stroke()
-	// Pupil
-	ctx.beginPath()
-	ctx.arc(cx, cy, r * 0.4, 0, Math.PI * 2)
-	ctx.fill()
-	// Diagonal slash
-	ctx.lineWidth = 2.5
-	const d = r * 1.5
-	ctx.beginPath()
-	ctx.moveTo(cx - d, cy + d * 0.7)
-	ctx.lineTo(cx + d, cy - d * 0.7)
-	ctx.stroke()
-	return toPng64(canvas)
-}
-
 function drawFlash() {
 	const { canvas, ctx } = makeCanvas()
 	const cx = W / 2, cy = DRAW_H / 2
@@ -299,20 +252,6 @@ function drawMessage() {
 	ctx.closePath()
 	ctx.fill()
 	ctx.stroke()
-	return toPng64(canvas)
-}
-
-function drawProfile() {
-	const { canvas, ctx } = makeCanvas()
-	const cx = W / 2, cy = DRAW_H / 2
-	// Head
-	ctx.beginPath()
-	ctx.arc(cx, cy - 5, 5, 0, Math.PI * 2)
-	ctx.fill()
-	// Shoulders
-	ctx.beginPath()
-	ctx.arc(cx, cy + 12, 10, Math.PI * 1.15, Math.PI * 1.85)
-	ctx.fill()
 	return toPng64(canvas)
 }
 
@@ -375,18 +314,15 @@ const icons = {
 	NEXT: drawNext(),
 	PREV: drawPrev(),
 	TIMER: drawTimer(),
-	EYE: drawEye(),
-	BLACKOUT: drawBlackout(),
 	FLASH: drawFlash(),
 	MESSAGE: drawMessage(),
-	PROFILE: drawProfile(),
 	WARNING: drawWarning(),
 	INFO: drawInfo(),
 }
 
 // Build icons.js source
 const lines = [
-	`// Auto-generated PNG64 icons (${W}x${H}px, white on transparent, ${PAD_TOP}px top padding)`,
+	`// Auto-generated PNG64 icons (${W}x${H}px, white on transparent)`,
 	'// Do not edit manually \u2014 regenerate with scripts/generate-icons.js',
 	'',
 	'module.exports = {',

@@ -27,15 +27,16 @@ module.exports = {
 
 		presets['toggle'] = {
 			type: 'button',
-			category: '2. Timer',
+			category: '1. Timer',
 			name: 'Play/Pause Toggle',
 			style: {
-				text: '\\n\\nTOGGLE',
-				size: 'auto',
+				text: 'TOGGLE',
+				size: '14',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.DARK_BG,
 				png64: icons.PLAY_PAUSE,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -63,15 +64,16 @@ module.exports = {
 
 		presets['start'] = {
 			type: 'button',
-			category: '2. Timer',
+			category: '1. Timer',
 			name: 'Start Timer',
 			style: {
-				text: '\\n\\nSTART',
-				size: 'auto',
+				text: 'START',
+				size: '14',
 				color: COLOR.BLACK,
 				bgcolor: COLOR.GREEN,
 				png64: icons.PLAY,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -84,15 +86,16 @@ module.exports = {
 
 		presets['pause'] = {
 			type: 'button',
-			category: '2. Timer',
+			category: '1. Timer',
 			name: 'Pause Timer',
 			style: {
-				text: '\\n\\nPAUSE',
-				size: 'auto',
+				text: 'PAUSE',
+				size: '14',
 				color: COLOR.BLACK,
 				bgcolor: COLOR.YELLOW,
 				png64: icons.PAUSE,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -105,15 +108,16 @@ module.exports = {
 
 		presets['reset'] = {
 			type: 'button',
-			category: '2. Timer',
+			category: '1. Timer',
 			name: 'Reset Timer',
 			style: {
-				text: '\\n\\nRESET',
-				size: 'auto',
+				text: 'RESET',
+				size: '14',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.ELEV_BG,
 				png64: icons.RESET,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -126,15 +130,16 @@ module.exports = {
 
 		presets['stop'] = {
 			type: 'button',
-			category: '2. Timer',
+			category: '1. Timer',
 			name: 'Stop Timer',
 			style: {
-				text: '\\n\\nSTOP',
-				size: 'auto',
+				text: 'STOP',
+				size: '14',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.ORANGE_RED,
 				png64: icons.STOP,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -147,7 +152,7 @@ module.exports = {
 
 		presets['add_1min'] = {
 			type: 'button',
-			category: '2. Timer',
+			category: '1. Timer',
 			name: 'Add 1 Minute',
 			style: {
 				text: '+1:00',
@@ -166,7 +171,7 @@ module.exports = {
 
 		presets['sub_1min'] = {
 			type: 'button',
-			category: '2. Timer',
+			category: '1. Timer',
 			name: 'Subtract 1 Minute',
 			style: {
 				text: '-1:00',
@@ -185,15 +190,16 @@ module.exports = {
 
 		presets['duration_5min'] = {
 			type: 'button',
-			category: '2. Timer',
+			category: '1. Timer',
 			name: '5 Minutes',
 			style: {
-				text: '\\n\\n5:00',
-				size: 'auto',
+				text: '5:00',
+				size: '14',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.SEC_BG,
 				png64: icons.CLOCK,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -210,15 +216,16 @@ module.exports = {
 
 		presets['prev_timer'] = {
 			type: 'button',
-			category: '1. Select',
+			category: '2. Select',
 			name: 'Previous Timer',
 			style: {
-				text: '\\n\\nPREV',
-				size: 'auto',
+				text: 'PREV',
+				size: '14',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.BLUE,
 				png64: icons.PREV,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -231,15 +238,16 @@ module.exports = {
 
 		presets['next_timer'] = {
 			type: 'button',
-			category: '1. Select',
+			category: '2. Select',
 			name: 'Next Timer',
 			style: {
-				text: '\\n\\nNEXT',
-				size: 'auto',
+				text: 'NEXT',
+				size: '14',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.BLUE,
 				png64: icons.NEXT,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -252,15 +260,16 @@ module.exports = {
 
 		presets['timer_select'] = {
 			type: 'button',
-			category: '1. Select',
+			category: '2. Select',
 			name: 'Select Timer',
 			style: {
-				text: '\\nTIMER\\n$(ninja-timer:timer_index)',
-				size: 'auto',
+				text: 'TIMER\\n$(ninja-timer:timer_index)',
+				size: '14',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.SEC_BG,
 				png64: icons.TIMER,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -336,12 +345,13 @@ module.exports = {
 			category: '3. Display',
 			name: 'Duration Display',
 			style: {
-				text: '\\nDURATION\\n$(ninja-timer:duration_formatted)',
-				size: 'auto',
+				text: 'DURATION\\n$(ninja-timer:duration_formatted)',
+				size: '14',
 				color: combineRgb(150, 150, 150),
 				bgcolor: COLOR.SEC_BG,
 				png64: icons.CLOCK,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [],
 			feedbacks: [],
@@ -428,12 +438,13 @@ module.exports = {
 			category: '3. Display',
 			name: 'Warning Zone Indicator',
 			style: {
-				text: '\\n\\nWARNING',
-				size: 'auto',
+				text: 'WARNING',
+				size: '14',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.ELEV_BG,
 				png64: icons.WARNING,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [],
 			feedbacks: [
@@ -458,12 +469,10 @@ module.exports = {
 			category: '3. Display',
 			name: 'Blackout Toggle',
 			style: {
-				text: '\\nBLACK\\nOUT',
+				text: 'BLACKOUT',
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.ELEV_BG,
-				png64: icons.EYE,
-				pngalignment: 'center:top',
 			},
 			steps: [
 				{
@@ -477,7 +486,6 @@ module.exports = {
 					style: {
 						bgcolor: COLOR.BLACK,
 						color: COLOR.RED,
-						png64: icons.BLACKOUT,
 					},
 				},
 			],
@@ -488,12 +496,13 @@ module.exports = {
 			category: '3. Display',
 			name: 'Flash Display',
 			style: {
-				text: '\\n\\nFLASH',
-				size: 'auto',
+				text: 'FLASH',
+				size: '14',
 				color: COLOR.BLACK,
 				bgcolor: COLOR.YELLOW,
 				png64: icons.FLASH,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -513,12 +522,13 @@ module.exports = {
 			category: '4. Messages',
 			name: 'Hide Message',
 			style: {
-				text: '\\nHIDE\\nMSG',
-				size: 'auto',
+				text: 'HIDE\\nMSG',
+				size: '14',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.ORANGE_RED,
 				png64: icons.MESSAGE,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -534,12 +544,13 @@ module.exports = {
 			category: '4. Messages',
 			name: 'Show Message',
 			style: {
-				text: '\\n\\nMSG 1',
-				size: 'auto',
+				text: 'MSG 1',
+				size: '14',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.PINK,
 				png64: icons.MESSAGE,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -559,12 +570,13 @@ module.exports = {
 			category: '5. Profiles',
 			name: 'Previous Profile',
 			style: {
-				text: '\\n\\nPREV',
-				size: 'auto',
+				text: 'PREV',
+				size: '14',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.VIOLET,
 				png64: icons.PREV,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -580,12 +592,13 @@ module.exports = {
 			category: '5. Profiles',
 			name: 'Next Profile',
 			style: {
-				text: '\\n\\nNEXT',
-				size: 'auto',
+				text: 'NEXT',
+				size: '14',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.VIOLET,
 				png64: icons.NEXT,
 				pngalignment: 'center:top',
+				alignment: 'center:bottom',
 			},
 			steps: [
 				{
@@ -601,12 +614,10 @@ module.exports = {
 			category: '5. Profiles',
 			name: 'Profile Name',
 			style: {
-				text: '\\nPROFILE\\n$(ninja-timer:profile_name)',
+				text: 'PROFILE\\n$(ninja-timer:profile_name)',
 				size: 'auto',
 				color: COLOR.WHITE,
-				bgcolor: COLOR.SEC_BG,
-				png64: icons.PROFILE,
-				pngalignment: 'center:top',
+				bgcolor: COLOR.BLACK,
 			},
 			steps: [],
 			feedbacks: [],
