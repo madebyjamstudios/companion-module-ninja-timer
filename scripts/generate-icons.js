@@ -238,13 +238,14 @@ function drawBlackout() {
 function drawFlash() {
 	const { canvas, ctx } = makeCanvas()
 	const cx = W / 2, cy = H / 2
+	// Bold lightning bolt
 	ctx.beginPath()
-	ctx.moveTo(cx + 2, cy - 12)
-	ctx.lineTo(cx - 4, cy - 1)
-	ctx.lineTo(cx + 1, cy - 1)
-	ctx.lineTo(cx - 2, cy + 12)
-	ctx.lineTo(cx + 4, cy + 1)
+	ctx.moveTo(cx + 1, cy - 13)
+	ctx.lineTo(cx - 7, cy + 1)
 	ctx.lineTo(cx - 1, cy + 1)
+	ctx.lineTo(cx - 3, cy + 13)
+	ctx.lineTo(cx + 7, cy - 1)
+	ctx.lineTo(cx + 1, cy - 1)
 	ctx.closePath()
 	ctx.fill()
 	return toPng64(canvas)
