@@ -210,6 +210,24 @@ function drawTimer() {
 	return toPng64(canvas)
 }
 
+function drawEye() {
+	const { canvas, ctx } = makeCanvas()
+	const cx = W / 2, cy = H / 2, r = 9
+	ctx.lineWidth = 2
+	// Eye shape (two arcs)
+	ctx.beginPath()
+	ctx.moveTo(cx - r * 1.6, cy)
+	ctx.quadraticCurveTo(cx, cy - r * 1.3, cx + r * 1.6, cy)
+	ctx.quadraticCurveTo(cx, cy + r * 1.3, cx - r * 1.6, cy)
+	ctx.closePath()
+	ctx.stroke()
+	// Pupil
+	ctx.beginPath()
+	ctx.arc(cx, cy, r * 0.4, 0, Math.PI * 2)
+	ctx.fill()
+	return toPng64(canvas)
+}
+
 function drawBlackout() {
 	const { canvas, ctx } = makeCanvas()
 	const cx = W / 2, cy = H / 2, r = 9
@@ -352,6 +370,7 @@ const icons = {
 	NEXT: drawNext(),
 	PREV: drawPrev(),
 	TIMER: drawTimer(),
+	EYE: drawEye(),
 	BLACKOUT: drawBlackout(),
 	FLASH: drawFlash(),
 	MESSAGE: drawMessage(),

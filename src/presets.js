@@ -466,7 +466,7 @@ module.exports = {
 				size: 'auto',
 				color: COLOR.WHITE,
 				bgcolor: COLOR.ELEV_BG,
-				png64: icons.BLACKOUT,
+				png64: icons.EYE,
 				pngalignment: 'center:top',
 			},
 			steps: [
@@ -481,6 +481,7 @@ module.exports = {
 					style: {
 						bgcolor: COLOR.BLACK,
 						color: COLOR.RED,
+						png64: icons.BLACKOUT,
 					},
 				},
 			],
